@@ -1,23 +1,41 @@
+@font-face {
+  font-family: Digital7;
+  src: url(typeface/Digital7Monoitalic-8xKz.ttf);
+}
+
 body {
   margin: 0;
+  font-family: Digital7;
 }
 
 #calculator {
+  /* display: grid; */
   display: block;
-  position: relative;
-  /* width: 1000px;
-  height: 1500px; */
+  /* grid-template-columns: 400px;
+  grid-template-rows: 50px 500px; */
+  /* justify-items: center; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
 }
 
 #display {
+  /* align-self: center; */
   /* position: absolute; */
-  width: 400px;
+  width: 390px;
+  height: 25px;
+  border: solid rgb(40, 40, 49);
   text-align: right;
+  font-size: 30pt;
+  padding: 10px 30px;
 }
 
 #buttons {
+  /* align-self: center; */
   /* position: absolute; */
   display: grid;
+  /* margin: 0 auto; */
   grid-template: repeat(5, 100px) / repeat(4, 100px);
   /* grid-template-areas: "reset reset delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals"; */
 }

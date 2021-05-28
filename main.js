@@ -11,7 +11,6 @@ let secondNumber = "";
 let sign = "";
 let result = 0;
 let equation = "";
-display.value = equation;
 
 
 const add = (a, b) => {
@@ -32,9 +31,10 @@ const divide = (a, b) => {
 
 const showEquation = () => {
   equation = firstNumber + sign + secondNumber;
-  display.value = equation;
+  display.textContent = equation;
 }
 
+showEquation();
 
 clear.addEventListener("click", () => {
   firstNumber = "";
@@ -65,7 +65,7 @@ numbers.forEach(number => {
 
 operators.forEach(operator => {
   operator.addEventListener("click", () => {
-    firstNumber = Number(display.value);
+    firstNumber = Number(display.textContent);
     sign = operator.textContent;
     showEquation();
   })
