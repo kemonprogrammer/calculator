@@ -31,13 +31,15 @@ const divide = (a, b) => {
 }
 
 const showEquation = () => {
-  equation = (sign === "") ? firstNumber : firstNumber + sign + secondNumber;
+  equation = firstNumber + sign + secondNumber;
   display.value = equation;
 }
+
 
 clear.addEventListener("click", () => {
   firstNumber = "";
   secondNumber = "";
+  sign = "";
   showEquation();
 })
 
@@ -51,7 +53,7 @@ undo.addEventListener("click", () => {
 })
 
 numbers.forEach(number => {
-  number.addEventListener("click", e => {
+  number.addEventListener("click", () => {
     if (sign === "") {
       firstNumber += number.textContent;
     } else {
@@ -77,12 +79,14 @@ enter.addEventListener("click", () => {
   } else if (sign === "*") {
     result = multiply(firstNumber, secondNumber)
   } else if (sign === "/") {
-    result = divide(firstNumber, secondNumber)
+    result = divide(firstNumber, secondNumber);
+    if (result === Infinity) result = "NaN";
   } else {
-    alert("Error");
+    result = "Error";
   }
   sign = "";
   firstNumber = result;
   secondNumber = "";
   showEquation();
+  firstNumber = "";
 })
