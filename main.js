@@ -1,3 +1,8 @@
+const display = document.querySelector("#display");
+const operators = Array.from(document.querySelectorAll(".operator"));
+const numbers = Array.from(document.querySelectorAll(".number"));
+
+
 const add = (a, b) => {
   return +a + +b;
 }
@@ -14,11 +19,14 @@ const divide = (a, b) => {
   return a / b;
 }
 
+
+display.value = "";
+
+numbers.forEach(number => {
+  number.addEventListener("click", e => {
+    display.value += number.textContent;
+  });
+})
+
 let a = 0,
   b = 0;
-a = prompt("First number to add");
-b = prompt("Second number to add");
-console.log(add(a, b));
-console.log(substract(a, b));
-console.log(multiply(a, b));
-console.log(divide(a, b));

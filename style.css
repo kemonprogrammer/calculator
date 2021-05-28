@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+}
+
+#calculator {
+  display: block;
+  position: relative;
+  /* width: 1000px;
+  height: 1500px; */
+}
+
+#display {
+  /* position: absolute; */
+  width: 400px;
+}
+
+#buttons {
+  /* position: absolute; */
+  display: grid;
+  grid-template: repeat(5, 100px) / repeat(4, 100px);
+  /* grid-template-areas: "reset reset delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals"; */
+}
