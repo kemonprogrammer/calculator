@@ -11,8 +11,8 @@ let secondNumber = "";
 let sign = "";
 let result = 0;
 let equation = "";
+display.value = equation;
 
-display.value = "";
 
 const add = (a, b) => {
   return +a + +b;
@@ -30,38 +30,34 @@ const divide = (a, b) => {
   return a / b;
 }
 
+const showEquation = () => {
+  equation = (sign === "") ? firstNumber : firstNumber + sign + secondNumber;
+  display.value = equation;
+}
 
 clear.addEventListener("click", () => {
-  firstNumber = 0;
-  secondNumber = 0;
-  equation = "";
-  display.value = equation;
+  firstNumber = "";
+  secondNumber = "";
+  showEquation();
 })
 
 undo.addEventListener("click", () => {
   if (sign === "") {
     firstNumber = firstNumber.slice(0, -1);
-    alert(firstNumber);
-    equation = firstNumber;
-    display.value = equation;
   } else {
     secondNumber = secondNumber.slice(0, -1);
-    equation = firstNumber + sign + secondNumber;
-    display.value = equation;
   }
+  showEquation();
 })
 
 numbers.forEach(number => {
   number.addEventListener("click", e => {
     if (sign === "") {
       firstNumber += number.textContent;
-      equation += number.textContent;
-      display.value = equation;
     } else {
       secondNumber += number.textContent;
-      equation += number.textContent;
-      display.value = equation;
     }
+    showEquation();
   });
 })
 
@@ -69,8 +65,7 @@ operators.forEach(operator => {
   operator.addEventListener("click", () => {
     firstNumber = Number(display.value);
     sign = operator.textContent;
-    equation += sign;
-    display.value = equation;
+    showEquation();
   })
 })
 
@@ -86,10 +81,8 @@ enter.addEventListener("click", () => {
   } else {
     alert("Error");
   }
-  equation = result;
-  display.value = equation;
-
-  firstNumber = result;
-  secondNumber = 0;
   sign = "";
+  firstNumber = result;
+  secondNumber = "";
+  showEquation();
 })
