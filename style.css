@@ -28,17 +28,20 @@ body {
 #calculator {
   display: grid;
   grid-template: var(--display-height) repeat(5, 1fr) / repeat(4, 1fr);
-  grid-template-areas: "display display display display" "reset reset delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals";
+  grid-template-areas: "display display display display" "clear clear delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals";
   width: 30%;
   height: 60%;
 }
 
 #display {
   grid-area: display;
-  height: var(--display-height);
   border: 1.5px solid rgb(92, 92, 95);
   text-align: right;
   font-size: 48px;
+}
+
+#clear {
+  grid-area: clear;
 }
 
 .button {
