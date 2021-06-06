@@ -1,6 +1,7 @@
 const display = document.querySelector("#display");
 const clear = document.querySelector("#clear");
 const undo = document.querySelector("#delete");
+const comma = document.querySelector("#comma");
 const enter = document.querySelector("#enter");
 const numbers = Array.from(document.querySelectorAll(".number"));
 const operators = Array.from(document.querySelectorAll(".operator"));
@@ -117,8 +118,23 @@ negative.addEventListener("click", (e) => {
   showEquation();
 })
 
+comma.addEventListener("click", () => {
+  if (sign === "") {
+    if (firstNumber.includes(".")) return
+    else {
+      firstNumber += ".";
+    }
+  } else {
+    if (secondNumber.includes(".")) return
+    else {
+      secondNumber += ".";
+    }
+  }
+  showEquation();
+})
+
+/* Keyboard Input */
 window.addEventListener("keydown", e => {
-  // console.log(e.key);
   const key = document.querySelector(`button[data-key="${e.key}"]`);
   if (key != null) {
     key.click();
