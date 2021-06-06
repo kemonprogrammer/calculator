@@ -29,7 +29,7 @@ body {
   display: grid;
   grid-template: var(--display-height) repeat(5, 1fr) / repeat(4, 1fr);
   grid-template-areas: "display display display display" "reset reset delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals";
-  width: 30%;
+  width: 60%;
   height: 80%;
 }
 

@@ -90,3 +90,11 @@ enter.addEventListener("click", () => {
   showEquation();
   firstNumber = "";
 })
+
+window.addEventListener("keydown", e => {
+
+  const key = document.querySelector(`button[data-key="${e.key}"]`);
+  if (key != null) {
+    key.click();
+  }
+})
