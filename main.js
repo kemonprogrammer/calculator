@@ -4,7 +4,7 @@ const undo = document.querySelector("#delete");
 const enter = document.querySelector("#enter");
 const numbers = Array.from(document.querySelectorAll(".number"));
 const operators = Array.from(document.querySelectorAll(".operator"));
-
+const negative = document.querySelector("#negative");
 
 let firstNumber = "";
 let secondNumber = "";
@@ -66,11 +66,13 @@ numbers.forEach(number => {
 operators.forEach(operator => {
   operator.addEventListener("click", () => {
 
-    // if an operator is clicked after the secondNumber was inserted, 
-    // it should click Enter
+    /**
+     * If an operator is clicked after the secondNumber was inserted, 
+     * it should click Enter 
+     */
     if (sign !== "") {
 
-      // if double clicking operators, nothing should happen
+      /* if double clicking operators, nothing should happen */
       if (secondNumber === "") {
         return
       }
@@ -97,6 +99,21 @@ enter.addEventListener("click", () => {
   sign = "";
   firstNumber = result;
   secondNumber = "";
+  showEquation();
+})
+
+negative.addEventListener("click", (e) => {
+  /* If the user is typing the 1st number */
+  if (sign === "") {
+    if (firstNumber[0] === "-") {
+      firstNumber = firstNumber.slice(1);
+    } else {
+      firstNumber = "-" + firstNumber;
+    }
+  } else {
+    /* Otherwise the user is typing the 2nd number */
+    secondNumber = (secondNumber[0] === "-") ? secondNumber.slice(1) : "-" + secondNumber;
+  }
   showEquation();
 })
 
