@@ -46,10 +46,17 @@ body {
 
 #display {
   grid-area: display;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   border: 1.5px solid rgb(92, 92, 95);
+  background-color: white;
+}
+
+#displayNumbers {
+  margin-right: 0.2em;
   text-align: right;
   font-size: 48px;
-  background-color: white;
 }
 
 #clear {

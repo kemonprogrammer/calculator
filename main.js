@@ -1,4 +1,4 @@
-const display = document.querySelector("#display");
+const display = document.querySelector("#displayNumbers");
 const clear = document.querySelector("#clear");
 const undo = document.querySelector("#delete");
 const comma = document.querySelector("#comma");
