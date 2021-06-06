@@ -1,6 +1,6 @@
 @font-face {
+  src: url(typeface/Digital7Mono-B1g5.ttf);
   font-family: Digital7;
-  src: url(typeface/Digital7Monoitalic-8xKz.ttf);
 }
 
 * {
@@ -8,8 +8,10 @@
 }
 
 :root {
+  box-sizing: border-box;
   font-family: Digital7;
   height: 100%;
+  --display-height: 100px;
 }
 
 body {
@@ -17,26 +19,30 @@ body {
 }
 
 .wrapper {
-  min-height: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #calculator {
-  display: block;
+  display: grid;
+  grid-template: var(--display-height) repeat(5, 1fr) / repeat(4, 1fr);
+  grid-template-areas: "display display display display" "reset reset delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals";
+  width: 30%;
+  height: 80%;
 }
 
 #display {
-  height: 25px;
+  grid-area: display;
+  height: var(--display-height);
+  line-height: var(--display-height);
   border: 1.5px solid rgb(92, 92, 95);
   text-align: right;
   font-size: 30pt;
-  padding: 10px 30px;
+  /* padding: 10px 30px; */
 }
 
-#buttons {
-  display: grid;
-  grid-template: repeat(5, 100px) / repeat(4, 100px);
-  /* grid-template-areas: "reset reset delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals"; */
+.button {
+  font-size: 26px;
 }
