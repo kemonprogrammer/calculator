@@ -23,6 +23,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(250, 250, 250);
 }
 
 #calculator {
@@ -33,17 +34,24 @@ body {
   height: 60%;
 }
 
+.button {
+  font-size: 20px;
+}
+
+.number,
+#negative,
+#comma {
+  background-color: white;
+}
+
 #display {
   grid-area: display;
   border: 1.5px solid rgb(92, 92, 95);
   text-align: right;
   font-size: 48px;
+  background-color: white;
 }
 
 #clear {
   grid-area: clear;
-}
-
-.button {
-  font-size: 20px;
 }
