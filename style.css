@@ -3,39 +3,40 @@
   src: url(typeface/Digital7Monoitalic-8xKz.ttf);
 }
 
-body {
+* {
   margin: 0;
+}
+
+:root {
   font-family: Digital7;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #calculator {
-  /* display: grid; */
   display: block;
-  /* grid-template-columns: 400px;
-  grid-template-rows: 50px 500px; */
-  /* justify-items: center; */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
 }
 
 #display {
-  /* align-self: center; */
-  /* position: absolute; */
-  width: 390px;
   height: 25px;
-  border: solid rgb(40, 40, 49);
+  border: 1.5px solid rgb(92, 92, 95);
   text-align: right;
   font-size: 30pt;
   padding: 10px 30px;
 }
 
 #buttons {
-  /* align-self: center; */
-  /* position: absolute; */
   display: grid;
-  /* margin: 0 auto; */
   grid-template: repeat(5, 100px) / repeat(4, 100px);
   /* grid-template-areas: "reset reset delete divide" "seven eight nine multiply" "four five six minus" "one two three plus" "negatve zero comma equals"; */
 }
