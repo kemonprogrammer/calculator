@@ -45,9 +45,9 @@ clear.addEventListener("click", () => {
 
 undo.addEventListener("click", () => {
   if (sign === "") {
-    firstNumber = firstNumber.slice(0, -1);
+    firstNumber = firstNumber.slice(0, -1)
   } else {
-    secondNumber = secondNumber.slice(0, -1);
+    secondNumber = secondNumber.slice(0, -1)
   }
   showEquation();
 })
@@ -55,9 +55,9 @@ undo.addEventListener("click", () => {
 numbers.forEach(number => {
   number.addEventListener("click", () => {
     if (sign === "") {
-      firstNumber += number.textContent;
+      firstNumber += number.textContent
     } else {
-      secondNumber += number.textContent;
+      secondNumber += number.textContent
     }
     showEquation();
   });
@@ -65,7 +65,17 @@ numbers.forEach(number => {
 
 operators.forEach(operator => {
   operator.addEventListener("click", () => {
-    firstNumber = Number(display.textContent);
+
+    // if an operator is clicked after the secondNumber was inserted, 
+    // it should click Enter
+    if (sign !== "") {
+
+      // if double clicking operators, nothing should happen
+      if (secondNumber === "") {
+        return
+      }
+      enter.click()
+    }
     sign = operator.textContent;
     showEquation();
   })
@@ -88,11 +98,10 @@ enter.addEventListener("click", () => {
   firstNumber = result;
   secondNumber = "";
   showEquation();
-  firstNumber = "";
 })
 
 window.addEventListener("keydown", e => {
-
+  // console.log(e.key);
   const key = document.querySelector(`button[data-key="${e.key}"]`);
   if (key != null) {
     key.click();
