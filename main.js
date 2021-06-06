@@ -30,12 +30,14 @@ const divide = (a, b) => {
   return a / b;
 }
 
+const round = (number) => {
+  return Math.round(number * 100) / 100;
+}
+
 const showEquation = () => {
   equation = firstNumber + sign + secondNumber;
   display.textContent = equation;
 }
-
-showEquation();
 
 clear.addEventListener("click", () => {
   firstNumber = "";
@@ -98,6 +100,7 @@ enter.addEventListener("click", () => {
     result = "Error";
   }
   sign = "";
+  if (typeof result == "number") result = round(result);
   firstNumber = result;
   secondNumber = "";
   showEquation();
